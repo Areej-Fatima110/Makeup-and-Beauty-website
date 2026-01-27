@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium beauty and makeup products for every skin type. Shop lipsticks, foundations, skincare, haircare and more.">
+  <meta name="keywords" content="beauty, makeup, cosmetics, skincare, haircare, lipstick, foundation, mascara">
+  <title>Beauty & Makeup | Premium Cosmetics & Skincare</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #fef9f9;
+    }
+
+    /* Header Section */
+    header {
+      background: linear-gradient(135deg, #e91e63, #ff4081);
+      color: #fff;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(233, 30, 99, 0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    header p {
+      margin: 8px 0 0;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s;
+      padding: 8px 15px;
+      border-radius: 20px;
+    }
+
+    nav a:hover {
+      color: #e91e63;
+      background-color: #ffeaf1;
+    }
+
+    /* Hero Section */
+    section.hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                  url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    section.hero h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    section.hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      opacity: 0.95;
+    }
+
+    section.hero button {
+      background: linear-gradient(to right, #e91e63, #ff4081);
+      color: #fff;
+      padding: 14px 32px;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+    }
+
+    section.hero button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+    }
+
+    /* Section Titles */
+    section h2 {
+      text-align: center;
+      color: #e91e63;
+      font-size: 2.5rem;
+      margin: 50px 0 30px;
+      position: relative;
+    }
+
+    section h2:after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, #e91e63, #ff80ab);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    /* Products Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 20px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .card {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      text-align: center;
+      padding: 25px 20px;
+      background-color: #fff;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 450px;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, #e91e63, #ff80ab);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card h3 {
+      margin: 15px 0 10px;
+      color: #333;
+      font-size: 1.3rem;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card p {
+      color: #666;
+      margin: 10px 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .card .price {
+      color: #e91e63;
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin: 15px 0;
+      height: 30px;
+    }
+
+    .card .button-container {
+      margin-top: auto;
+      height: 50px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .card button {
+      background: linear-gradient(to right, #e91e63, #ff4081);
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    .card button:hover {
+      background: linear-gradient(to right, #d81b60, #f50057);
+      transform: translateY(-2px);
+    }
+
+    /* Badge for Best Sellers */
+    #bestsellers .card:before {
+      background: linear-gradient(to right, #ff9800, #ffb74d);
+    }
+
+    /* Badge for New Arrivals */
+    #newarrivals .card:before {
+      background: linear-gradient(to right, #4caf50, #81c784);
+    }
+
+    /* About Section */
+    section.about {
+      background: linear-gradient(135deg, #fff5f8, #ffeaf1);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    section.about p {
+      max-width: 700px;
+      margin: 30px auto;
+      text-align: center;
+      color: #666;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      padding: 0 20px;
+    }
+
+    /* Beauty Tips Section */
+    #beautytips {
+      background-color: #fff;
+      padding: 50px 20px;
+    }
+
+    #beautytips > p {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+
+    #beautytips main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    #beautytips section {
+      background: #f9f9f9;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border-left: 5px solid #e91e63;
+    }
+
+    #beautytips h3 {
+      color: #e91e63;
+      font-size: 1.5rem;
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #beautytips h3 i {
+      font-size: 1.3rem;
+    }
+
+    #beautytips ul {
+      padding-left: 20px;
+    }
+
+    #beautytips li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+      position: relative;
+      padding-left: 10px;
+    }
+
+    #beautytips li:before {
+      content: "•";
+      color: #e91e63;
+      font-weight: bold;
+      position: absolute;
+      left: -10px;
+    }
+
+    /* Contact Section */
+    section.contact {
+      background: linear-gradient(135deg, #e91e63, #ff4081);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    section.contact h2 {
+      color: white;
+      margin-top: 0;
+    }
+
+    section.contact h2:after {
+      background: white;
+    }
+
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 40px auto 0;
+    }
+
+    .contact-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 25px;
+      border-radius: 12px;
+      min-width: 250px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-item i {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .contact-item h3 {
+      margin: 10px 0;
+      font-size: 1.5rem;
+    }
+
+    .contact-item p {
+      margin: 5px 0;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .contact-item a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .contact-item a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #333, #555);
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #ff80ab;
+      transform: translateY(-3px);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      
+      nav a {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
+      
+      .grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        padding: 20px;
+        gap: 20px;
+      }
+      
+      section.hero h2 {
+        font-size: 2.2rem;
+      }
+      
+      section.hero p {
+        font-size: 1.1rem;
+      }
+      
+      section h2 {
+        font-size: 2rem;
+      }
+      
+      .card {
+        min-height: 420px;
+      }
+      
+      .card img {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Beauty & Makeup</h1>
+    <p>Your Premium Destination for Beauty Essentials</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#home"><i class="fas fa-home"></i> Home</a>
+    <a href="#bestsellers"><i class="fas fa-crown"></i> Best Sellers</a>
+    <a href="#newarrivals"><i class="fas fa-star"></i> New Arrivals</a>
+    <a href="#allproducts"><i class="fas fa-shopping-bag"></i> All Products</a>
+    <a href="#beautytips"><i class="fas fa-lightbulb"></i> Beauty Tips</a>
+    <a href="#about"><i class="fas fa-info-circle"></i> About Us</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h2>Discover Your Beauty</h2>
+    <p>Experience our curated collection of premium beauty products designed to enhance your natural radiance and express your unique style.</p>
+    <button onclick="location.href='#allproducts'">Explore Collection</button>
+  </section>
+
+  <!-- Best Sellers Section -->
+  <section id="bestsellers">
+    <h2>Best Sellers</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://pngimg.com/uploads/mascara/mascara_PNG29.png" alt="Mascara">
+        <h3>Volume Mascara</h3>
+        <p>Enhance your lashes for bold, dramatic looks that last all day.</p>
+        <p class="price">PKR 3,000</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://th.bing.com/th/id/OIP.evsWxvvRJEzi6OgxdE6WiQHaHa?rs=1&pid=ImgDetMain" alt="Lipstick">
+        <h3>Matte Lipstick</h3>
+        <p>Richly pigmented lipsticks that look and feel fabulous.</p>
+        <p class="price">PKR 1,200</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://i5.walmartimages.com/seo/KUOZHUOW-Pressed-Face-Powder-Makeup-Foundation-Finishing-Powder-Pressed-Finishing-and-Setting-Powder-Loose-Setting-Powder-Makeup-Concealer_d2e4f16d-af84-4951-8881-fb43987d0853.7a2aa47560618030154fe40c3a35cb5e.jpeg" alt="Face Powder">
+        <h3>Matte Face Powder</h3>
+        <p>For a natural matte look that controls shine all day.</p>
+        <p class="price">PKR 2,500</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.byrdie.com/thmb/CLUgquAUg8ip7w9aDBYB5-glJ_s=/1400x1400/filters:no_upscale():max_bytes(150000):strip_icc()/e.l.f.HydratingFacePrimer-5c62ebca46e0fb000144282e.jpg" alt="Primer">
+        <h3>Hydrating Primer</h3>
+        <p>Prep your skin for flawless makeup application.</p>
+        <p class="price">PKR 2,000</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Arrivals Section -->
+  <section id="newarrivals">
+    <h2>New Arrivals</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://cdn.shopify.com/s/files/1/1613/8443/files/aerosol-can-spraying.jpg?v=1700665798" alt="Setting Spray">
+        <h3>Long-Last Setting Spray</h3>
+        <p>Keep your makeup fresh and vibrant all day long.</p>
+        <p class="price">PKR 1,800</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://th.bing.com/th/id/OIP.QyU35HmuEpbx8NR4_LxJuwHaFs?rs=1&pid=ImgDetMain" alt="Lip Liner">
+        <h3>Precision Lip Liner</h3>
+        <p>Perfectly define your lips with smooth, long-lasting color.</p>
+        <p class="price">PKR 800</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://media.self.com/photos/5dd57145d0525b0009f5ee08/4:3/w_2560%2Cc_limit/GettyImages-172229249.jpg" alt="Moisturizer">
+        <h3>Hydra-Boost Moisturizer</h3>
+        <p>Hydrate and nourish your skin with vitamin-rich formula.</p>
+        <p class="price">PKR 2,200</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://th.bing.com/th/id/OIP.Zq75K3RsrIEZkq1HRFnIrQHaFh?rs=1&pid=ImgDetMain" alt="Compact Mirror">
+        <h3>Travel Compact Mirror</h3>
+        <p>Handy and stylish for on-the-go touch-ups.</p>
+        <p class="price">PKR 500</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Products Section -->
+  <section id="allproducts">
+    <h2>All Products</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://imgmedia.lbb.in/media/2020/07/5efefd94c36ef475084d3eb8_1593769364270.jpg" alt="Lipstick">
+        <h3>Velvet Lipstick</h3>
+        <p>Vibrant colors for every occasion with creamy matte finish.</p>
+        <p class="price">PKR 1,500</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://m.media-amazon.com/images/I/718IBXQUbhL._AC_UF1000,1000_QL80_.jpg" alt="Foundation">
+        <h3>Liquid Foundation</h3>
+        <p>Flawless coverage for all skin types with buildable formula.</p>
+        <p class="price">PKR 3,500</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images-static.nykaa.com/media/catalog/product/f/8/f897e18KAYBE00000721_9.jpg?tr=w-500" alt="Eyeshadow">
+        <h3>Eyeshadow Palette</h3>
+        <p>Gorgeous shades for every mood with high color payoff.</p>
+        <p class="price">PKR 4,200</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://m.media-amazon.com/images/S/al-na-9d5791cf-3faf/3fcf713d-82c7-4f77-80d5-a91725eba1eb._SL480_.jpg" alt="Concealer">
+        <h3>Full Coverage Concealer</h3>
+        <p>Hide blemishes and brighten under-eye for flawless look.</p>
+        <p class="price">PKR 2,800</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.boozyshop.com/cdn/shop/products/makeup-revolution-beam-bright-highlighter-pink-seduction-36754183651604.jpg?crop=center&height=430&v=1731319960&width=430" alt="Highlighter">
+        <h3>Radiant Highlighter</h3>
+        <p>Add a luminous glow to your skin with pearlescent finish.</p>
+        <p class="price">PKR 2,300</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEBnjYgpmnn7v5Lr5m0K6CynkXxM44U35FQTcNsPlOXsL6TMfZ752-oikJ0CopKrJeiXk&usqp=CAU" alt="Blush">
+        <h3>Color Bloom Blush</h3>
+        <p>Nourishing formula with lightweight, long-wearing finish.</p>
+        <p class="price">PKR 1,900</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/originals/b4/de/d6/b4ded682eff55a5996f564c80ebc9a1c.jpg" alt="Nail Polish">
+        <h3>Gel Nail Polish</h3>
+        <p>Long-lasting colors with chip-resistant formula.</p>
+        <p class="price">PKR 800</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.ltwebstatic.com/images3_spmp/2024/09/13/80/1726211243fef1ef8d2a2de171e8cb84cc0bc76ac1_thumbnail_405x552.jpg" alt="Makeup Brush Set">
+        <h3>Professional Brush Set</h3>
+        <p>Premium vegan brushes for flawless application.</p>
+        <p class="price">PKR 5,500</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://rukminim2.flixcart.com/image/750/900/l3t2fm80/mascara/7/y/9/10-2-in-1-eyeliner-and-mascara-long-lasting-black-10-ml-agley-original-imageukbwym9pbyp.jpeg?q=20&crop=false" alt="Liner and Mascara">
+        <h3>2-in-1 Liner & Mascara</h3>
+        <p>Precision eyeliner with volumizing mascara duo.</p>
+        <p class="price">PKR 3,200</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.guerlain.com/dw/image/v2/BDCZ_PRD/on/demandware.static/-/Sites-GSA_master_catalog/default/dwea779687/primary_packshot_3/2024/FRAGRANCE/PEX/PEX-CHERRY-BLOSSOM-24_SECONDARY-VISUAL_PDP_03.jpg" alt="Perfumes">
+        <h3>Cherry Blossom Perfume</h3>
+        <p>Elegant fragrance embodying timeless grace.</p>
+        <p class="price">PKR 8,500</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://th.bing.com/th/id/OIP.3CMjbxQsym5fPRNcQZ4mXgAAAA?rs=1&pid=ImgDetMain" alt="Primer">
+        <h3>Pore-Minimizing Primer</h3>
+        <p>Prep your skin for smooth makeup application.</p>
+        <p class="price">PKR 2,500</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.juviasplace.com/cdn/shop/files/SettingSpray-lifestyle3_1080x.jpg?v=1708542697" alt="Setting Spray">
+        <h3>Dewy Finish Setting Spray</h3>
+        <p>Fresh, glowing makeup that lasts all day.</p>
+        <p class="price">PKR 2,100</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://tvparlour.com/cdn/shop/files/COMPACT-POWDER_1024x.jpg?v=1701242545" alt="Face Powder">
+        <h3>Compact Pressed Powder</h3>
+        <p>Set and mattify your makeup for long-lasting look.</p>
+        <p class="price">PKR 2,700</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://down-my.img.susercontent.com/file/2290b120b476a7217fcea1f1aca608aa" alt="Compact Mirror">
+        <h3>Luxury Compact Mirror</h3>
+        <p>Create perfect looks with premium mirror.</p>
+        <p class="price">PKR 1,200</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://arshcosmetics.pk/wp-content/uploads/2023/09/flormar-lip-pencils12pc1-arshcosmetics.pk_.jpg" alt="Lip Liner">
+        <h3>Professional Lip Liner Set</h3>
+        <p>Shape your lips perfectly with long-lasting formula.</p>
+        <p class="price">PKR 1,500</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://i0.wp.com/maplefresh.ca/wp-content/uploads/p14798414-av-01-zoom-1.webp?fit=1500%2C1500&ssl=1" alt="Contour">
+        <h3>Contour Kit</h3>
+        <p>Sculpt and define facial features with precision.</p>
+        <p class="price">PKR 3,800</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://pimg.us.marykaycdn.com/HeroZoom/10004/J2006992-UNL-GB-029-MKSC-Hero-Hydrating-Regimen.jpg" alt="Moisturizer">
+        <h3>Intensive Moisturizer</h3>
+        <p>Protect and hydrate skin with barrier-strengthening formula.</p>
+        <p class="price">PKR 3,200</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://media.licdn.com/dms/image/v2/C5622AQEDS8FCg1g0pA/feedshare-shrink_800/feedshare-shrink_800/0/1662134056007?e=2147483647&v=beta&t=Xo6QkjEJZEHCxRIokeUovkukokagg--5ilNAHGqoChk" alt="Skincare">
+        <h3>Radiance Skincare Set</h3>
+        <p>Complete regimen for revitalized, glowing skin.</p>
+        <p class="price">PKR 6,500</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.freepik.com/premium-photo/hair-care-items-pink-background-generative-ai_431161-3191.jpg" alt="Haircare">
+        <h3>Luxury Haircare Bundle</h3>
+        <p>Nourish and strengthen hair for natural shine.</p>
+        <p class="price">PKR 4,800</p>
+        <div class="button-container">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beauty Tips Section -->
+  <section id="beautytips">
+    <h2>Beauty Tips & Advice</h2>
+    <p>Get expert tips to enhance your natural beauty. Stay tuned for more advice on skincare, makeup, and self-care routines!</p>
+    <main>
+      <section>
+        <h3><i class="fas fa-spa"></i> Skincare Essentials</h3>
+        <ul>
+          <li>Hydrate your skin by drinking at least 8 glasses of water daily</li>
+          <li>Apply moisturizer suited to your skin type every morning and night</li>
+          <li>Protect your skin with SPF 30+ sunscreen every day, even indoors</li>
+          <li>Double cleanse in the evening to remove makeup and impurities</li>
+          <li>Use serums with active ingredients like vitamin C and retinol</li>
+          <li>Exfoliate 1-2 times weekly to reveal brighter, smoother skin</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><i class="fas fa-cut"></i> Hair Care Routine</h3>
+        <ul>
+          <li>Massage your scalp with nourishing oils like argan or coconut weekly</li>
+          <li>Use conditioner after every wash focusing on mid-lengths to ends</li>
+          <li>Trim hair every 6–8 weeks to prevent split ends and promote growth</li>
+          <li>Wash hair 2-3 times weekly with sulfate-free shampoos</li>
+          <li>Apply hair masks once a week for deep conditioning</li>
+          <li>Use heat protectant spray before any hot tool styling</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h3><i class="fas fa-palette"></i> Makeup Application Tips</h3>
+        <ul>
+          <li>Always start with a clean, moisturized base</li>
+          <li>Use primer to extend makeup wear and smooth texture</li>
+          <li>Apply foundation with damp beauty sponge for natural finish</li>
+          <li>Set cream products with translucent powder to prevent creasing</li>
+          <li>Blend eyeshadows thoroughly for seamless transitions</li>
+          <li>Finish with setting spray to lock makeup in place</li>
+        </ul>
+      </section>
+    </main>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="about">
+    <h2>About Our Brand</h2>
+    <p>At Beauty & Makeup, we believe true beauty comes from confidence and self-expression. Founded with a passion for empowering individuals, we curate premium beauty products that celebrate diversity and inspire creativity.</p>
+    <p>Our commitment extends beyond cosmetics – we advocate for clean, cruelty-free formulations that love your skin as much as you do. Every product in our collection is thoughtfully selected to help you discover and enhance your unique beauty.</p>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="contact">
+    <h2>Get In Touch</h2>
+    <div class="contact-container">
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <h3>Email Address</h3>
+        <p><a href="mailto:info@beautyandmakeup.com">info@beautyandmakeup.com</a></p>
+        <p><a href="mailto:support@beautyandmakeup.com">support@beautyandmakeup.com</a></p>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <h3>Contact Number</h3>
+        <p><a href="tel:+923001234567">+92 300 123 4567</a></p>
+        <p><a href="tel:+923001234568">+92 300 123 4568</a></p>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Store Location</h3>
+        <p>123 Beauty Avenue, DHA Phase 5</p>
+        <p>Karachi, Pakistan</p>
+      </div>
+    </div>
+  </section>
+
+<div style="text-align: center; padding: 30px; background: #f8f9fa;">
+  <a href="https://your-github-pages-link.com" 
+     style="background: #0077b5; color: white; padding: 12px 30px; 
+            border-radius: 25px; text-decoration: none; font-weight: bold;
+            display: inline-block; margin: 10px;">
+    <i class="fab fa-linkedin"></i> View Live Demo
+  </a>
+  <a href="https://github.com/yourusername/project" 
+     style="background: #333; color: white; padding: 12px 30px; 
+            border-radius: 25px; text-decoration: none; font-weight: bold;
+            display: inline-block; margin: 10px;">
+    <i class="fab fa-github"></i> View Source Code
+  </a>
+</div>
+  <!-- Footer -->
+     <footer>
+    <p>&copy; 2024 Beauty & Makeup. All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-pinterest"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p style="margin-top: 15px; font-size: 0.9rem;">Premium Beauty Products | Cruelty-Free | Vegan Options</p>
+  </footer>
+
+</body>
+</html>
