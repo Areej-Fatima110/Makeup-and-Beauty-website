@@ -3,7 +3,7 @@
 Hey there! This is our first semester web project. A beauty products website we built together for our AICT Lab.
 
 ## Check It Out
-Live version: [Your GitHub Pages Link Here]
+Live version: [https://github.com/Areej-Fatima110/Makeup-and-Beauty-website]
 
 ## About This Project
 We're three students learning web development, and this was our first big project. We wanted to build something pretty and functional that actually looks like a real online store.
